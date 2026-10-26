@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy 15th Birthday, Princess! 🎀</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --pink: #ff82b2;
+  --light: #fff0f7;
+  --purple: #c9a7ff;
+  --deep: #a43f77;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: "Trebuchet MS", sans-serif;
+  color: #9d4774;
+  text-align: center;
+  background: linear-gradient(
+    135deg, #fff0f7, #ffe0ed, #eee4ff, #fff5fa
+  );
+  background-size: 300% 300%;
+  animation: bg 12s ease infinite;
+}
+
+@keyframes bg {
+  0%,100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+#sky {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  width: min(92%, 560px);
+  margin: auto;
+  padding: 36px 0 60px;
+}
+
+h1 {
+  font-size: clamp(2rem, 9vw, 3.3rem);
+  line-height: 1.2;
+  margin: 16px 0;
+  animation: pop 1s both;
+}
+
+h2 {
+  margin-bottom: 14px;
+}
+
+p {
+  line-height: 1.8;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(135deg, #ff83b4, #c49aff);
+  padding: 14px 23px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: inherit;
+  box-shadow: 0 7px 20px #d58ab54d;
+  transition: transform .25s, box-shadow .25s;
+  margin: 10px 4px;
+}
+
+button:active {
+  transform: scale(.93);
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px #d58ab577;
+}
+
+.card {
+  background: #ffffffc9;
+  border: 2px solid #ffffff;
+  border-radius: 28px;
+  padding: 26px 20px;
+  margin: 24px 0;
+  box-shadow: 0 12px 35px #ce83a51c;
+  backdrop-filter: blur(10px);
+  animation: rise .9s both;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.emoji {
+  font-size: 3.4rem;
+  display: inline-block;
+  animation: bounce 2s infinite;
+}
+
+.bow {
+  font-size: 2.5rem;
+  animation: wiggle 2s infinite;
+  display: inline-block;
+}
+
+@keyframes pop {
+  from { opacity: 0; transform: scale(.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(35px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-12px) rotate(5deg); }
+}
+
+@keyframes wiggle {
+  0%,100% { transform: rotate(-8deg); }
+  50% { transform: rotate(8deg); }
+}
+
+.float {
+  position: absolute;
+  bottom: -70px;
+  animation: floatUp linear forwards;
+  opacity: .85;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(-115vh) rotate(360deg); opacity: 0; }
+}
+
+.sparkle {
+  position: absolute;
+  animation: twinkle 1.5s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .2; transform: scale(.6); }
+  to { opacity: 1; transform: scale(1.3); }
+}
+
+.envelope {
+  width: 190px;
+  height: 125px;
+  background: #ffb5d0;
+  margin: 35px auto;
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 10px 25px #d58ab544;
+  animation: bounce 2s infinite;
+}
+
+.envelope:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #ff8fba;
+  clip-path: polygon(0 0, 50% 55%, 100% 0);
+  border-radius: 12px 12px 0 0;
+  transition: transform .6s;
+  transform-origin: top;
+  z-index: 2;
+}
+
+.envelope.open:before {
+  transform: rotateX(180deg);
+}
+
+.envelope:after {
+  content: "💌";
+  position: absolute;
+  font-size: 55px;
+  inset: 25px 0 0;
+}
+
+#letter {
+  text-align: left;
+  white-space: pre-wrap;
+  min-height: 100px;
+  line-height: 1.95;
+  font-size: 1rem;
+}
+
+.cake {
+  font-size: 5.3rem;
+  display: inline-block;
+  filter: drop-shadow(0 6px 10px #ffb2d4);
+  animation: bounce 2s infinite;
+}
+
+.candle {
+  display: inline-block;
+  animation: flame .7s infinite alternate;
+}
+
+@keyframes flame {
+  from { transform: scale(1); filter: brightness(1); }
+  to { transform: scale(1.2); filter: brightness(1.4); }
+}
+
+#gift {
+  font-size: 5rem;
+  cursor: pointer;
+  display: inline-block;
+  animation: bounce 1.5s infinite;
+}
+
+footer {
+  padding: 20px 0;
+  font-size: .85rem;
+  opacity: .8;
+}
+
+.confetti {
+  position: fixed;
+  top: -20px;
+  z-index: 10;
+  pointer-events: none;
+  animation: rain linear forwards;
+}
+
+@keyframes rain {
+  to { transform: translateY(115vh) rotate(900deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *:before, *:after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+</style>
+</head>
+
+<body>
+<div id="sky"></div>
+
+<main>
+  <div class="bow">🎀</div>
+  <p>✨ A little surprise made just for you ✨</p>
+
+  <section id="intro" class="card">
+    <div class="emoji">🧸💗</div>
+    <h1>Hey, Birthday Princess!</h1>
+    <p>
+      Someone very special just turned
+      <b>15 YEARS OLD!!</b> 🥹💕
+    </p>
+    <p style="margin-top:12px">
+      And guess what? Your birthday surprise is ready...
+    </p>
+    <button onclick="openSurprise()">
+      OPEN YOUR SURPRISE 💌
+    </button>
+  </section>
+
+  <section id="surprise" class="card hidden">
+    <div class="bow">🎀✨🎀</div>
+    <h1>HAPPY 15TH BIRTHDAY!</h1>
+    <p>To the cutest little chaos-maker 😂💗</p>
+
+    <div class="envelope" id="envelope"
+         onclick="openLetter()"></div>
+    <p id="hint">Tap the magical letter to open it! 💌</p>
+
+    <button onclick="openLetter()">OPEN MY LETTER 💗</button>
+  </section>
+
+  <section id="letterCard" class="card hidden">
+    <div class="emoji">💖🧸💖</div>
+    <h2>A Letter From Your Big Bro  💌</h2>
+    <div id="letter"></div>
+    <button id="cakeButton" class="hidden"
+            onclick="showCake()">
+      LET'S CELEBRATE! 🎂
+    </button>
+  </section>
+
+  <section id="cakeCard" class="card hidden">
+    <h1>Make A Wish! 🌟</h1>
+    <p>Close your eyes for a moment and wish for something wonderful.</p>
+    <br>
+    <div class="cake">🎂</div>
+    <div style="font-size:2rem">
+      <span class="candle">🕯️</span>
+      <span class="candle">🕯️</span>
+      <span class="candle">🕯️</span>
+    </div>
+    <h2>15 looks magical on you! 💗</h2>
+    <button onclick="blowCandles()">BLOW THE CANDLES ✨</button>
+    <p id="wishText"></p>
+  </section>
+
+  <section id="giftCard" class="card hidden">
+    <h1>Your Final Surprise 🎁</h1>
+    <div id="gift" onclick="revealGift()">🎁</div>
+    <p>Tap the gift box to reveal your birthday message!</p>
+    <h2 id="giftMessage" class="hidden">
+      🌷 You are loved more than words can say! 🌷
+    </h2>
+    <button onclick="celebrateAgain()">MORE SPARKLES! 🎉</button>
+  </section>
+
+  <footer>
+    Made with 💗, a little HTML, and lots of sibling love.
+    <br>Happy Birthday, Princess! 🎀
+  </footer>
+</main>
+
+<script>
+// ✏️ PERSONALIZE YOUR BIRTHDAY LETTER HERE!
+const birthdayLetter = `DEAR PRIYAKSHI, 💗
+
+Happiest 15th birthday to you!!
+
+I hope this new chapter of your life brings you
+so much happiness, laughter, good health,
+beautiful memories and all the little things
+that make your heart happy.
+
+No matter how much we tease each other,
+argue over silly things, or annoy each other
+for absolutely no reason 😂, you will always
+be someone very special to me.
+
+I hope you always keep that beautiful spark
+inside you. Never stop dreaming, learning,
+laughing, or being your wonderfully unique self.
+
+May your 15th year be full of surprises,
+new adventures, lovely friendships and
+moments you'll remember for years.
+
+And remember: even on your difficult days,
+you have someone cheering for you. 💗
+
+Keep smiling, keep shining, and enjoy YOUR day
+like the princess you are! 👑
+
+Happy Birthday, little sis!! 🎂🎀
+
+With lots of love,
+Your annoying but caring big bro 💕`;
+
+// Cute floating decorations
+const sky = document.getElementById("sky");
+const decorations = ["💗", "💕", "✨", "🌸", "🎀", "💖", "⭐", "🦋"];
+
+function floaty() {
+  const el = document.createElement("span");
+  el.className = "float";
+  el.textContent = decorations[
+    Math.floor(Math.random() * decorations.length)
+  ];
+  el.style.left = Math.random() * 100 + "vw";
+  el.style.fontSize = (16 + Math.random() * 24) + "px";
+  el.style.animationDuration = (5 + Math.random() * 7) + "s";
+  sky.appendChild(el);
+  setTimeout(() => el.remove(), 13000);
+}
+
+setInterval(floaty, 350);
+
+// Twinkling stars
+for (let i = 0; i < 24; i++) {
+  const star = document.createElement("span");
+  star.className = "sparkle";
+  star.textContent = Math.random() > .5 ? "✦" : "✧";
+  star.style.left = Math.random() * 100 + "%";
+  star.style.top = Math.random() * 100 + "%";
+  star.style.color = ["#ff83b4", "#b89aff", "#ffd166"][
+    Math.floor(Math.random() * 3)
+  ];
+  star.style.animationDelay = Math.random() * 2 + "s";
+  sky.appendChild(star);
+}
+
+// Confetti celebration
+function confetti(amount = 130) {
+  const colors = ["#ff82b2", "#c9a7ff", "#ffd166",
+                  "#ffb3c6", "#b8f2e6", "#ffffff"];
+
+  for (let i = 0; i < amount; i++) {
+    const el = document.createElement("div");
+    el.className = "confetti";
+    el.textContent = Math.random() > .7 ? "💗" : "";
+    el.style.left = Math.random() * 100 + "vw";
+    el.style.width = (5 + Math.random() * 9) + "px";
+    el.style.height = (8 + Math.random() * 12) + "px";
+    el.style.background =
+      colors[Math.floor(Math.random() * colors.length)];
+    el.style.borderRadius = Math.random() > .5 ? "50%" : "2px";
+    el.style.animationDuration = (2 + Math.random() * 4) + "s";
+    el.style.animationDelay = Math.random() * 1.5 + "s";
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 8000);
+  }
+}
+
+function show(id) {
+  document.getElementById(id).classList.remove("hidden");
+  document.getElementById(id).scrollIntoView({
+    behavior: "smooth", block: "center"
+  });
+}
+
+function openSurprise() {
+  show("surprise");
+  confetti(100);
+  for (let i = 0; i < 8; i++) {
+    setTimeout(floaty, i * 120);
+  }
+}
+
+let letterStarted = false;
+
+function openLetter() {
+  document.getElementById("envelope").classList.add("open");
+  document.getElementById("hint").textContent =
+    "Your special letter is opening... 💗";
+  show("letterCard");
+
+  if (letterStarted) return;
+  letterStarted = true;
+
+  confetti(65);
+  let i = 0;
+  const target = document.getElementById("letter");
+
+  function typeNext() {
+    if (i < birthdayLetter.length) {
+      target.textContent += birthdayLetter[i];
+      i++;
+      const char = birthdayLetter[i - 1];
+      setTimeout(typeNext, char === "\n" ? 220 : 27);
+    } else {
+      show("cakeButton");
+      confetti(65);
+    }
+  }
+
+  typeNext();
+}
+
+function showCake() {
+  show("cakeCard");
+  confetti(100);
+}
+
+function blowCandles() {
+  document.querySelectorAll(".candle").forEach(c => {
+    c.textContent = "💨";
+  });
+
+  document.getElementById("wishText").textContent =
+    "✨ Wish sent to the universe! May beautiful things find you. 💗";
+
+  confetti(180);
+  setTimeout(() => show("giftCard"), 1700);
+}
+
+function revealGift() {
+  document.getElementById("gift").textContent = "💝";
+  document.getElementById("giftMessage").classList.remove("hidden");
+  confetti(220);
+}
+
+function celebrateAgain() {
+  confetti(250);
+  for (let i = 0; i < 20; i++) {
+    setTimeout(floaty, i * 90);
+  }
+}
+</script>
+</body>
+</html>
